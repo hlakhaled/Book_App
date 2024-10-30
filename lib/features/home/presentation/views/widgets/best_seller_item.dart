@@ -1,12 +1,12 @@
 import 'package:book_app/constants.dart';
+import 'package:book_app/core/utils/app_router.dart';
 import 'package:book_app/core/utils/styles.dart';
 import 'package:book_app/features/home/presentation/views/featured_books_view.dart';
 import 'package:book_app/features/home/presentation/views/widgets/custom_image.dart';
 import 'package:book_app/features/home/presentation/views/widgets/rating.dart';
 
 import 'package:flutter/material.dart';
-import 'package:get/get_core/get_core.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:go_router/go_router.dart';
 
 class BestSellerItem extends StatelessWidget {
   const BestSellerItem({
@@ -16,7 +16,7 @@ class BestSellerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Get.to(() => const FeaturedBooksView()),
+      onTap: () => GoRouter.of(context).push(AppRouter.kFeaturedBooksView),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -1,10 +1,11 @@
 import 'package:book_app/constants.dart';
+import 'package:book_app/core/utils/app_router.dart';
 import 'package:book_app/core/utils/assets_data.dart';
-import 'package:book_app/features/home/presentation/views/book_view.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get_core/get_core.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -27,7 +28,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToNextPage() {
     Future.delayed(kduration, () {
-      Get.to(()=>const BookView(), transition: Transition.fade);
+      GoRouter.of(context).push(AppRouter.kBookView);
     });
   }
 

@@ -10,18 +10,18 @@ class RatingItem extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(
+        const Icon(
           Icons.star,
           color: Color(0xffFFDD4F),
         ),
-        SizedBox(
+        const SizedBox(
           width: 8,
         ),
-        Text(
+        const Text(
           "4.8",
           style: Styles.textStyle16,
         ),
-        SizedBox(
+        const SizedBox(
           width: 6,
         ),
         Text(
