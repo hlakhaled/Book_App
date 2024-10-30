@@ -1,5 +1,5 @@
-
 import 'package:book_app/core/utils/styles.dart';
+import 'package:book_app/features/home/presentation/views/widgets/rating_item.dart';
 import 'package:flutter/material.dart';
 
 class Rating extends StatelessWidget {
@@ -18,24 +18,7 @@ class Rating extends StatelessWidget {
         const SizedBox(
           width: 39,
         ),
-        const Icon(
-          Icons.star,
-          color: Color(0xffFFDD4F),
-        ),
-        const SizedBox(
-          width: 8,
-        ),
-        const Text(
-          "4.8",
-          style: Styles.textStyle16,
-        ),
-        const SizedBox(
-          width: 6,
-        ),
-        const Text(
-          "(2390)",
-          style: Styles.textStyle14,
-        )
+        const RatingItem()
       ],
     );
   }
