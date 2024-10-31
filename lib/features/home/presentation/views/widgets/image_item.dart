@@ -1,28 +1,22 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ImageItem extends StatelessWidget {
-  const ImageItem({
-    super.key,
-  });
+  const ImageItem({super.key, required this.image});
 
+  final String image;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.only(end: 16),
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height * .27,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
         child: AspectRatio(
           aspectRatio: 2.6 / 4,
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                color: Colors.white,
-                image: const DecorationImage(
-                  fit: BoxFit.fill,
-                  image: NetworkImage(
-                    "https://th.bing.com/th/id/R.23ed49f2c1450b8fbc59e134e6a8e2d0?rik=zzYkKJsSf7IGpw&pid=ImgRaw&r=0",
-                  ),
-                )),
+          child: CachedNetworkImage(
+            imageUrl: image,
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+            fit: BoxFit.fill,
           ),
         ),
       ),

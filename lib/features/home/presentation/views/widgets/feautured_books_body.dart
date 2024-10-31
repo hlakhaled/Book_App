@@ -23,7 +23,11 @@ class FeauturedBooksBody extends StatelessWidget {
               height: 25,
             ),
           ),
-          const SliverToBoxAdapter(child: Center(child: ImageItem())),
+          const SliverToBoxAdapter(
+              child: Center(
+                  child: ImageItem(
+            image: "",
+          ))),
           const SliverToBoxAdapter(
             child: SizedBox(
               height: 31,
