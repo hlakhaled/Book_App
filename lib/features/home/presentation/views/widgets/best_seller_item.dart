@@ -15,7 +15,8 @@ class BestSellerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => GoRouter.of(context).push(AppRouter.kFeaturedBooksView),
+      onTap: () =>
+          GoRouter.of(context).push(AppRouter.kFeaturedBooksView, extra: books),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -5,10 +5,14 @@ class CustomButton extends StatelessWidget {
   final Color color;
   final Color textColor;
   final bool isLeft;
+  final void Function()? onPressed;
+  final String text;
   const CustomButton(
       {super.key,
+      required this.onPressed,
       required this.color,
       required this.textColor,
+      required this.text,
       this.isLeft = false});
 
   @override
@@ -29,9 +33,9 @@ class CustomButton extends StatelessWidget {
                         topRight: Radius.circular(10),
                         bottomRight: Radius.circular(10))),
           ),
-          onPressed: () {},
+          onPressed: onPressed,
           child: Text(
-            "19.99€",
+            text,
             style: Styles.textStyle15.copyWith(color: textColor),
           )),
     );

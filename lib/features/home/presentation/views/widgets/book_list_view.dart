@@ -1,8 +1,10 @@
+import 'package:book_app/core/utils/app_router.dart';
 import 'package:book_app/core/utils/styles.dart';
 import 'package:book_app/features/home/presentation/views/manager/feautured_books/feautured_books_cubit.dart';
 import 'package:book_app/features/home/presentation/views/widgets/image_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class BookListView extends StatelessWidget {
   const BookListView({
@@ -20,9 +22,16 @@ class BookListView extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: state.books.length,
               itemBuilder: (context, index) {
-                return ImageItem(
-                  image: state.books[index].volumeInfo!.imageLinks!.thumbnail ??
-                      'assets/images/placeholder.png',
+                return GestureDetector(
+                  onTap: () {
+                    GoRouter.of(context).push(AppRouter.kFeaturedBooksView,
+                        extra: state.books[index]);
+                  },
+                  child: ImageItem(
+                    image:
+                        state.books[index].volumeInfo!.imageLinks!.thumbnail ??
+                            'assets/images/placeholder.png',
+                  ),
                 );
               },
             ),
