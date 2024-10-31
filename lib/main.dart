@@ -26,8 +26,8 @@ class Bookly extends StatelessWidget {
             create: (context) => FeauturedBooksCubit(getIt.get<HomeRepoImpl>())
               ..fetchFeautured()),
         BlocProvider(
-            create: (context) => NewestBooksCubit(
-                getIt.get<HomeRepoImpl>()..fetchBestSellerBooks()))
+            create: (context) =>
+                NewestBooksCubit(getIt.get<HomeRepoImpl>())..NewestBooks())
       ],
       child: MaterialApp.router(
           theme: ThemeData.dark().copyWith(

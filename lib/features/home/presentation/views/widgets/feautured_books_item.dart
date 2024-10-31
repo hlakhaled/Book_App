@@ -29,7 +29,11 @@ class FeauturedBooksItem extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        const Center(child: RatingItem()),
+        const Center(
+            child: RatingItem(
+          rating: 2.3,
+          count: 3,
+        )),
         const SizedBox(
           height: 25,
         ),

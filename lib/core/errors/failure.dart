@@ -27,7 +27,8 @@ class ServiceFailure extends Failure {
         }
         return ServiceFailure("Connection Error");
       case DioExceptionType.unknown:
-        if (error.message != null && error.message!.contains("SocketException")) {
+        if (error.message != null &&
+            error.message!.contains("SocketException")) {
           return ServiceFailure("No Internet Connection");
         } else {
           return ServiceFailure("Unexpected Error");

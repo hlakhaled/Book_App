@@ -3,7 +3,9 @@ import 'package:book_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class RatingItem extends StatelessWidget {
-  const RatingItem({super.key});
+  const RatingItem({super.key, required this.count, required this.rating});
+  final double rating;
+  final int count;
 
   @override
   Widget build(BuildContext context) {
@@ -17,17 +19,25 @@ class RatingItem extends StatelessWidget {
         const SizedBox(
           width: 8,
         ),
-        const Text(
-          "4.8",
+        Text(
+          rating.toString(),
           style: Styles.textStyle16,
         ),
         const SizedBox(
           width: 6,
         ),
         Text(
-          "(2390)",
+          "(",
           style: Styles.textStyle14.copyWith(color: kWhite.withOpacity(.50)),
-        )
+        ),
+        Text(
+          count.toString(),
+          style: Styles.textStyle14.copyWith(color: kWhite.withOpacity(.50)),
+        ),
+        Text(
+          ")",
+          style: Styles.textStyle14.copyWith(color: kWhite.withOpacity(.50)),
+        ),
       ],
     );
   }

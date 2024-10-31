@@ -12,14 +12,17 @@ class ImageItem extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: AspectRatio(
-          aspectRatio: 2.6 / 4,
-          child: CachedNetworkImage(
-            imageUrl: image,
-            errorWidget: (context, url, error) => const Icon(Icons.error),
-            fit: BoxFit.fill,
+            aspectRatio: 2.6 / 4,
+
+            child: CachedNetworkImage(
+              imageUrl: image,
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+              fit: BoxFit.fill,
+            ),
+        
           ),
         ),
-      ),
+   
     );
   }
 }
