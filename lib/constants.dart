@@ -6,3 +6,6 @@ const Color kWhite = Colors.white;
 const Color kBlack = Colors.black;
 const kGTSectraFine = "assets/fonts/GT Sectra Fine Regular.ttf";
 const kPink = Color(0xffEF8262);
+const kBox = "Books";
+const kNewestBox = "NewestBox";
+const kSimilarBox = "NewestBox";
