@@ -1,5 +1,6 @@
 import 'package:book_app/core/utils/styles.dart';
 import 'package:book_app/features/home/data/models/book_models/book_models.dart';
+import 'package:book_app/features/home/domain/entities/book_entity.dart';
 import 'package:book_app/features/home/presentation/views/widgets/Books_list_view.dart';
 import 'package:book_app/features/home/presentation/views/widgets/app_bar_feautured_books.dart';
 
@@ -11,7 +12,7 @@ import 'package:flutter/material.dart';
 
 class FeauturedBooksBody extends StatelessWidget {
   const FeauturedBooksBody({super.key, required this.books});
-  final BookModels books;
+  final BookEntity books;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,7 +28,7 @@ class FeauturedBooksBody extends StatelessWidget {
           SliverToBoxAdapter(
               child: Center(
                   child: ImageItem(
-            image: books.volumeInfo!.imageLinks!.thumbnail!,
+            image: books.image,
           ))),
           const SliverToBoxAdapter(
             child: SizedBox(

@@ -1,6 +1,8 @@
 import 'package:book_app/core/utils/service_locator.dart';
 import 'package:book_app/features/home/data/models/book_models/book_models.dart';
 import 'package:book_app/features/home/data/repos/home_repo_impl.dart';
+import 'package:book_app/features/home/domain/entities/book_entity.dart';
+import 'package:book_app/features/home/domain/use_case/fetch_similar_books.dart';
 import 'package:book_app/features/home/presentation/views/book_view.dart';
 import 'package:book_app/features/home/presentation/views/featured_books_view.dart';
 import 'package:book_app/features/home/presentation/views/manager/similar_books/similar_books_cubit.dart';
@@ -25,10 +27,8 @@ abstract class AppRouter {
     GoRoute(
       path: kFeaturedBooksView,
       builder: (context, state) => BlocProvider(
-        create: (context) => SimilarBooksCubit(getIt.get<HomeRepoImpl>()),
-        child:  FeaturedBooksView(book: state.extra as BookModels
-          
-        ),
+        create: (context) => SimilarBooksCubit(getIt.get<FetchSimilarBooks>()),
+        child: FeaturedBooksView(book: state.extra as BookEntity),
       ),
     ),
     GoRoute(

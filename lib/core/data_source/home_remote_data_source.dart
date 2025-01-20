@@ -9,7 +9,6 @@ import 'package:book_app/features/home/domain/entities/book_entity.dart';
 abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchBestSellerBooks();
   Future<List<BookEntity>> fetchFeaturedBooks();
-
   Future<List<BookEntity>> fetchSimilardBooks({required String category});
 }
 
@@ -34,11 +33,12 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     return bookList(data);
   }
 
+  @override
   Future<List<BookEntity>> fetchSimilardBooks(
       {required String category}) async {
     var data = await apiService.get(
         endpoint:
-            "volumes?Filtering=free-ebooks&q=computer science &sorting=relevance");
+            "volumes?Filtering=free-ebooks&q=$category &sorting=relevance");
     saveData(bookList(data), kSimilarBox);
     return bookList(data);
   }

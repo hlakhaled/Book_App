@@ -1,9 +1,10 @@
-import 'package:book_app/features/home/data/models/book_models/book_models.dart';
+
+import 'package:book_app/features/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-Future<void> urlLancher(BookModels books, BuildContext context) async {
-  final Uri _url = Uri.parse(books.volumeInfo!.previewLink!);
+Future<void> urlLancher(BookEntity books, BuildContext context) async {
+  final Uri _url = Uri.parse(books.link);
   if (await canLaunchUrl(_url)) {
     await launchUrl(_url);
   } else {

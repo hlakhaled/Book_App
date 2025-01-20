@@ -12,7 +12,7 @@ final class FeauturedBooksInitial extends FeauturedBooksState {}
 final class FeauturedBooksLoading extends FeauturedBooksState {}
 
 final class FeauturedBooksSuccess extends FeauturedBooksState {
-  List<BookModels> books;
+  List<BookEntity> books;
   FeauturedBooksSuccess({required this.books});
 }
 

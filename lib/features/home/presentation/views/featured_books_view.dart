@@ -1,4 +1,5 @@
-import 'package:book_app/features/home/data/models/book_models/book_models.dart';
+
+import 'package:book_app/features/home/domain/entities/book_entity.dart';
 import 'package:book_app/features/home/presentation/views/manager/similar_books/similar_books_cubit.dart';
 
 import 'package:book_app/features/home/presentation/views/widgets/feautured_books_body.dart';
@@ -6,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FeaturedBooksView extends StatefulWidget {
-  final BookModels book;
+  final BookEntity book;
   const FeaturedBooksView({super.key, required this.book});
 
   @override
@@ -18,7 +19,7 @@ class _FeaturedBooksViewState extends State<FeaturedBooksView> {
   void initState() {
     context
         .read<SimilarBooksCubit>()
-        .similarBooks(category: widget.book.volumeInfo!.categories![0]);
+        .similarBooks(category: "Computer Science");
     super.initState();
   }
 

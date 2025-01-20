@@ -5,13 +5,12 @@ import 'package:book_app/features/home/domain/entities/book_entity.dart';
 import 'package:book_app/features/home/domain/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 
-class FetchFeaturedBooksUseCase extends UseCase<BookEntity, NoParam> {
+class FetchSimilarBooks extends UseCase<BookEntity, String> {
   final HomeRepo homeRepo;
 
-  FetchFeaturedBooksUseCase({required this.homeRepo});
-
+  FetchSimilarBooks({required this.homeRepo});
   @override
-  Future<Either<Failure, List<BookEntity>>> call([NoParam? para]) {
-    return homeRepo.fetchFeaturedBooks();
+  Future<Either<Failure, List<BookEntity>>> call([String? para]) {
+    return homeRepo.fetchSimilardBooks(category: para!);
   }
 }

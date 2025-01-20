@@ -14,6 +14,8 @@ class BookEntity {
   final String image;
   @HiveField(5)
   final String bookId;
+    @HiveField(6)
+  final String link;
 
   const BookEntity(
       {required this.title,
@@ -21,5 +23,7 @@ class BookEntity {
       required this.rating,
       required this.price,
       required this.image,
-      required this.bookId});
+      required this.bookId,
+      required this.link
+      });
 }

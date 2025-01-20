@@ -1,8 +1,11 @@
 import 'package:book_app/constants.dart';
+
 import 'package:book_app/core/utils/app_router.dart';
 import 'package:book_app/core/utils/service_locator.dart';
 import 'package:book_app/features/home/domain/entities/book_entity.dart';
-import 'package:book_app/features/home/data/repos/home_repo_impl.dart';
+
+import 'package:book_app/features/home/domain/use_case/fetch_best_seller_books_use_case.dart';
+import 'package:book_app/features/home/domain/use_case/fetch_featured_books_use_case.dart';
 import 'package:book_app/features/home/presentation/views/manager/Newest_books/newest_books_cubit.dart';
 import 'package:book_app/features/home/presentation/views/manager/feautured_books/feautured_books_cubit.dart';
 
@@ -15,12 +18,13 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 Future<void> main() async {
   setUp();
-  runApp(const Bookly());
+
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
-  await Hive.openBox(kBox);
-  await Hive.openBox(kNewestBox);
-   await Hive.openBox(kSimilarBox);
+  await Hive.openBox<BookEntity>(kBox);
+  await Hive.openBox<BookEntity>(kNewestBox);
+  await Hive.openBox<BookEntity>(kSimilarBox);
+  runApp(const Bookly());
 }
 
 class Bookly extends StatelessWidget {
@@ -31,11 +35,14 @@ class Bookly extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-            create: (context) => FeauturedBooksCubit(getIt.get<HomeRepoImpl>())
+            create: (context) => FeauturedBooksCubit(
+                fetchFeaturedBooksUseCase:
+                    getIt.get<FetchFeaturedBooksUseCase>())
               ..fetchFeautured()),
         BlocProvider(
             create: (context) =>
-                NewestBooksCubit(getIt.get<HomeRepoImpl>())..NewestBooks())
+                NewestBooksCubit(getIt.get<FetchBestSellerBooksUseCase>())
+                  ..NewestBooks())
       ],
       child: MaterialApp.router(
           theme: ThemeData.dark().copyWith(

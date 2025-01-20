@@ -27,11 +27,7 @@ class BookListView extends StatelessWidget {
                     GoRouter.of(context).push(AppRouter.kFeaturedBooksView,
                         extra: state.books[index]);
                   },
-                  child: ImageItem(
-                    image:
-                        state.books[index].volumeInfo!.imageLinks!.thumbnail ??
-                            'assets/images/placeholder.png',
-                  ),
+                  child: ImageItem(image: state.books[index].image),
                 );
               },
             ),
