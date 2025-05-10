@@ -1,16 +1,32 @@
-# book_app
+# 📚 Book App
 
-A new Flutter project.
+A Flutter application for browsing free computer science books.
 
-## Getting Started
+## 🚀 Overview
 
-This project is a starting point for a Flutter application.
+**Book App** is a feature-rich mobile app that enables users to:
 
-A few resources to get you started if this is your first Flutter project:
+- 🔍 Search for free computer science books  
+- 📖 View detailed book information  
+- 👓 Read previews of selected books directly within the app
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+The app is built using **Flutter** and follows the **MVVM architecture**, ensuring scalability and clean code. It uses **Cubit** for efficient state management and **GoRouter** for seamless navigation between screens. The app connects to an external API to fetch up-to-date book data.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Tech Stack
+
+- **Flutter** – Cross-platform UI toolkit  
+- **Dart** – Programming language  
+- **Cubit** – Lightweight state management  
+- **GoRouter** – Declarative routing  
+- **MVVM Architecture** – Separation of concerns  
+- **REST API** – External book data source
+
+## 📸 Features
+
+- View book details (title, author, description, cover image)  
+- Read book previews  
+- Clean and responsive user interface  
+- Structured and maintainable codebase  
+
+https://github.com/your-username/book_app.git
+
